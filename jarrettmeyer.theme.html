@@ -41,7 +41,7 @@
 		  
 		  #tweet { margin: 6px 0; font-size: 14px; font-weight: bold; min-height: 40px; background: #B2E0F8 url("http://github.com/jarrettmeyer/jarrettmeyer_tumblr_theme/raw/master/twitter.png") no-repeat 0 4px; color: #4B6773; text-align: center; padding: 4px 72px; }
 		  
-		  div.post { border-bottom: 1px solid #DBDBDB; padding: 1em 0; }
+		  div.post { border-bottom: 2px solid #DBDBDB; padding: 1em 0; }
 		  a.postTitle { font-size: 20px; min-height: 34px; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; font-weight: bold; color: #2D2B30; }
 		  div.posted_at { font-weight: bold; display: inline; }
 		  div.posted_at_month { font-size: 10px; text-align: center; line-height: 12px; background: #CA979E; height: 12px; overflow: hidden; }
@@ -49,10 +49,14 @@
 		  
 		  .entry p { color: #111; }
 		  .entry ul { padding-left: 2em; list-style-type: disc; }
+		  .entry .description { margin-top: 1em; background: #F1F1F1; border-top: 2px solid #DBDBDB; border-bottom: 2px solid #DBDBDB; }
+		  
+		  .left { float: left; }
+		  .right { float: right; }
 		  
 		  /* footer settings */
 		  #footer, .push { height: 140px; }		  
-		  #footer { background: #F1F1F1; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; text-align: center; }
+		  #footer { border-top: 2px solid #DBDBDB; background: #F1F1F1; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; text-align: center; }
 		  #footer p { margin: 0 auto; }		  
   		{CustomCSS}																		
 		</style> 
@@ -226,15 +230,12 @@
 
 							<!-- LINK -->
 							{block:Link}
-								<a class="linkPost grid_11" href="{URL}" target="{Target}">{Name}</a>
-								
-								
+								<a class="postTitle grid_11" href="{URL}" target="{Target}">{Name}</a>
+								<div class="clear"></div>
 								{block:Description}											
-								<div class="description"><em>&#8211;</em> {Description}</div>
+								<div class="description">{Description}</div>
 								{/block:Description}
-								
 							{/block:Link}
-							
 							<!-- /LINK -->
 
 							<!-- CHAT -->
@@ -303,14 +304,16 @@
     <div id="footer">
 			<div class="container_12">
 	      {block:Pagination}
-    	  <div class="PAGINATION">
+	      <div class="clear"></div>
+    	  <div class="pagination">
 	    		{block:PreviousPage}
-	    		<div class="LEFT"><a href="{PreviousPage}"></a></div>
+	    		<div class="left"><a href="{PreviousPage}">Previous</a></div>
     			{/block:PreviousPage}
 	    		{block:NextPage}
-	    		<div class="RIGHT"><a href="{NextPage}"></a></div>
+	    		<div class="right"><a href="{NextPage}">Next</a></div>
 	    		{/block:NextPage}
     		</div>
+    		<div class="clear"></div>
 	    	{/block:Pagination}
 		  
 	  	  <p>Theme by <a href="http://jarrettmeyer.com">Jarrett Meyer</a>. {lang:Powered by Tumblr 2}.</p>

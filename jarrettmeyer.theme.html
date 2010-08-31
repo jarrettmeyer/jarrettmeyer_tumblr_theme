@@ -21,45 +21,62 @@
 		<link rel="stylesheet" type="text/css" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css" />
 		
 		<style type="text/css">
-		  <!--
 		  html, body { height: 100%; }		  
-		  body { background: #fff; line-height: 1.618em; font-family: "Lucida Sans", "Helvetica", "Arial", "sans-serif"; }
-		  p { margin-bottom: 1em; }
+		  body { background: #fff; font-size: 16px; line-height: 1.618em; font-family: "Lucida Sans", "Helvetica", "Arial", "sans-serif"; }
+		  p { padding: 0.5em 0; }
+		  a { text-decoration: none; color: #3F8FC4; }
+		  a:hover { text-decoration: underline; }
+		  a:visited { color: #3F8FC4; }
 		  pre { font-family: "Consolas", "Lucida Sans Unicode", "Courier New", monospace; line-height: 1em; }
 		  #page { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -140px; }
 		  
-		  #navigation { background: #222; clear: both; }		  
-		  #links { float: left; }
+		  #tumblrDashboard { background: #2D2B30; height: 25px; overflow: hidden; }
+		  #navigation { background: #2D2B30; color: #FFF; font-size: 14px; height: 26px; line-height: 26px; overflow: hidden; }
+		  #navigation a { color: #FFF; }		  
+      #links { }
+      #links li { float: left; display: inline; margin-right: 1em; }
 		  #search { float: right; }
+		  
+		  #title { background: #F1F1F1; border-bottom: 2px solid #DBDBDB; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; height: 60px; line-height: 60px; overflow: hidden; text-align: center; }
+		  h1 { font-size: 36px; color: #2D2B30; }
+		  
+		  #tweet { margin: 6px 0; font-size: 14px; font-weight: bold; min-height: 40px; background: #B2E0F8 url("http://github.com/jarrettmeyer/jarrettmeyer_tumblr_theme/raw/master/twitter.png") no-repeat 0 4px; color: #4B6773; text-align: center; padding: 4px 72px; }
+		  
+		  div.post { border-bottom: 2px solid #DBDBDB; padding: 1em 0; }
+		  a.postTitle { font-size: 20px; min-height: 34px; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; font-weight: bold; color: #2D2B30; }
+		  div.posted_at { font-weight: bold; display: inline; }
+		  div.posted_at_month { font-size: 10px; text-align: center; line-height: 12px; background: #CA979E; height: 12px; overflow: hidden; }
+		  div.posted_at_day { font-size: 20px; text-align: center; line-height: 22px; background: #F1F1F1; height: 22px; overflow: hidden; }
+		  
+		  .entry p { color: #111; }
+		  .entry ul { padding-left: 2em; list-style-type: disc; }
+      .entry ol { padding-left: 2em; list-style-type: decimal; }
+		  .entry .description, .entry blockquote, .entry .caption { margin: 1em 0; background: #F1F1F1; border-top: 2px solid #DBDBDB; border-bottom: 2px solid #DBDBDB; padding: 0 1em; font-style: italic; }
+		  
+		  .left { float: left; }
+		  .right { float: right; }
 		  
 		  /* footer settings */
 		  #footer, .push { height: 140px; }		  
-		  #footer { background: #F1F1F1; border-top: 2px solid #DBDBDB; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; }
-		  #footer p { margin: 0 auto;  }		  
-  		{CustomCSS}															
-			-->
+		  #footer { border-top: 2px solid #DBDBDB; background: #F1F1F1; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; text-align: center; }
+		  #footer p { margin: 0 auto; }		  
+  		{CustomCSS}																		
 		</style> 
     
     
 	</head> 
 	<body onload="prettyPrint()">
 	  <div id="page">
-		  <div id="navigation" class="clear">
+	    <div id="tumblrDashboard"></div>	    
+		  <div id="navigation">
 		    <div class="container_12">
-		      <ul id="links">
-		        {block:English}
-		        <li class="follow">
-							<a href="http://tumblr.com/follow/{Name}">Follow</a>
+		      <ul id="links">		        
+<li class="rss">
+							<a href="http://jarrettmeyer.com/rss">RSS</a>
 						</li>
-		        {/block:English}
-		        {block:NotEnglish}
-						<li class="page">
-							<a href="http://tumblr.com/follow/{Name}">{lang:Follow me}</a>
-						</li>
-					  {/block:NotEnglish}
-		        {block:AskEnabled}
+            {block:AskEnabled}
 		        <li class="ask">
-						  <a href="/ask"></a>
+						  <a href="/ask">{AskLabel}</a>
 					  </li>
 		        {/block:AskEnabled}
 		        {block:SubmissionsEnabled}
@@ -73,13 +90,16 @@
 					  </li>
 					  {/block:Pages}
 		      </ul>
+		      <!--
 		      <ul id="search">
 		        <form action="/search" method="get">
 						  <input type="text" id="search" name="q" value="{lang:Search}..." />
 					  </form>
 		      </ul>
+	        -->
 		    </div><!-- closes class=container_12 -->
-			</div><!-- closes id=navigation -->      		
+			</div><!-- closes id=navigation -->    
+			<div class="clear"></div>
 			<div id="title">
 			  <div class="container_12">
 			    <a href="/">
@@ -88,150 +108,94 @@
           <h2>{Description}</h2>
 			  </div>
 			</div>
-		  <div id="content">
-		    <div class="container_12">		
-			  {block:IfShowTwitterFeed}
-			<div class="BAR">
-				
-				<div class="BIRD"><a href="#" id="BIRD_A"></a></div>
-				
-				<div class="TWEET" id="TWEET">
-					{lang:Loading} tweet...
-				</div>
-			
-			</div>
-			{/block:IfShowTwitterFeed}
-			
-			<ul class="POSTS">
-
-				{block:SearchPage}
-				<li class="POST ALT TEXT MINI">
-					<div class="ENTRY">
-						<div class="TITLE CENTER">
-							{lang:Your search for SearchQuery returned SearchResultCount results 2}	
-						</div>
-						{block:NoSearchResults}
-						<div class="TITLE">
-							{lang:No search results for SearchQuery 2}
-						</div>
-						{/block:NoSearchResults}						
+      <div id="content">
+        <div class="container_12">		
+          {block:IfShowTwitterFeed}
+          <div id="tweet" onclick="javascript:goToTwitter();">Loading tweet...</div>			    
+          {/block:IfShowTwitterFeed}
+          
+          <div id="posts">
+            
+	  		  {block:SearchPage}  
+	  		  <div class="post text">
+	  		    <div class="entry">
+	  		      <div class="title center">
+	  		        {lang:Your search for SearchQuery returned SearchResultCount results 2}	
+	  		      </div>
+	  		      {block:NoSearchResults}
+						  <div class="title">
+							  {lang:No search results for SearchQuery 2}
+						  </div>
+						  {/block:NoSearchResults}
+	  		    </div>
+	  		  </div>
+	  		  {/block:SearchPage}
+	  		  
+	  		  {block:DayPage}
+	  		  <div class="post text">
+				    <div class="entry">
+						  <div class="title center">
+							  {lang:Viewing everything posted on Month DayOfMonth Year}
+						  </div>						
+					  </div>
 					</div>
-				</li>
-				{/block:SearchPage}
-
-				{block:DayPage}
-				<li class="POST ALT TEXT MINI">
-					<div class="ENTRY">
-						<div class="TITLE CENTER">
-							{lang:Viewing everything posted on Month DayOfMonth Year}
-						</div>						
-					</div>
-				</li>				
-				{/block:DayPage}
-							
-				{block:Posts}
-					
-				<li class="BREAK"></li>
-			
-				<li class="POST ALT {block:Text}TEXT{/block:Text}{block:Photo}PHOTO{/block:Photo}{block:Quote}QUOTE{/block:Quote}{block:Video}VIDEO{/block:Video}{block:Link}LINK{/block:Link}{block:Chat}CHAT{/block:Chat}{block:Audio}AUDIO{/block:Audio}{block:Answer}ANSWER{/block:Answer}">
-					<div class="ENTRY" style="{block:IfDisqusShortname}min-height: 145px;{/block:IfDisqusShortname}{block:NoteCount}min-height: 145px;{/block:NoteCount}{block:IfDisqusShortname}{block:NoteCount}min-height: 230px;{/block:NoteCount}{/block:IfDisqusShortname}">
-					
-						<div class="TITLE">
-							
-							{block:Title}
-							<div class="TITLE-TEXT">
-								<a href="{Permalink}">
-									{Title}
-								</a>
-							</div>
-							{/block:Title}
-							
-							{block:Date}
-							<div class="POSTED">
-								<div class="LEFT"></div>
-								<div class="MID">		
-								
-									{block:NotReblog}
-										<a href="/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}">{lang:Posted TimeAgo}</a>
-									{/block:NotReblog}
-									{block:Reblog}
-										{lang:PostTypeNoun reblogged from ReblogParentTitle 2}
-									{/block:Reblog}
-
-								</div>
-								<div class="RIGHT"></div>				
-							</div>
-							{/block:Date}
-													
-						</div>
-						
-						<div class="POST">
-
-							<!-- ANSWER -->
-							
+          {/block:DayPage}
+          
+          {block:Posts}
+          <div class="post {block:Text}text{/block:Text}{block:Photo}photo{/block:Photo}{block:Quote}quote{/block:Quote}{block:Video}video{/block:Video}{block:Link}link{/block:Link}{block:Chat}chat{/block:Chat}{block:Audio}audio{/block:Audio}{block:Answer}answer{/block:Answer}">					
+            <div class="entry">              
+              {block:Title}                  
+              <a class="postTitle push_1 grid_11" href="{Permalink}">
+                <h3>{Title}</h3>                      
+              </a>                  
+              {/block:Title}
+              {block:Date}
+              <div class="posted_at grid_1 {block:Title}pull_11{/block:Title}" onclick="window.location='/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}';">
+                <div class="posted_at_month">{ShortMonth} {ShortYear}</div>
+                <div class="posted_at_day">{DayOfMonth}</div>
+              </div>
+              {/block:Date}
+              
+              {block:Title}
+              <div class="clear"></div>
+              {/block:Title}
+              
+              <!-- ANSWER -->						
 							{block:Answer}
-								
-								<div class="QUOTEINFO">
-									
-									<div class="QUOTEMARK"></div>
-									<div class="TEXT">
-										{Question}
-									</div>
-								
-								</div>
-								
-								<p>{lang:Asked by Asker}</p>
-								
-								<div class="BREAK"></div>
-								
-								<div class="RESPONSE">
-								
-									{Answer}
-								
-								</div>
-
-							{/block:Answer}
-							
+							<div class="quote">
+							  <blockquote>{Question}</blockquote>
+							</div>
+							<p>{lang:Asked by Asker}</p>
+							<div class="response">{Answer}</div>
+							{/block:Answer}						
 							<!-- /ANSWER -->
 							
-							<!-- TEXT -->
-							
-							{block:Text}
-								
-								{Body}
-								
-							{/block:Text}
-							
+							<!-- TEXT -->							
+							{block:Text}								
+								{Body}								
+							{/block:Text}							
 							<!-- /TEXT -->
 							
-							<!-- VIDEO -->
-							
-							{block:Video}
-								
-								{Video-500}
-								
+							<!-- VIDEO -->							
+							{block:Video}								
+								{Video-500}								
 								{block:Caption}
 									{Caption}
-								{/block:Caption}
-								
-							{/block:Video}
-							
+								{/block:Caption}								
+							{/block:Video}							
 							<!-- /VIDEO -->
 							
-							<!-- PHOTO -->
-							
-							{block:Photo}
-							
-								<div class="CENTER">
-								
-									<div class="IMAGE">
-										{block:HighRes}<a class="HIGH-RES" href="{PhotoURL-HighRes}"></a>{/block:HighRes}
+							<!-- PHOTO -->							
+							{block:Photo}							
+								<div class="center">								
+									<div class="image">
+										{block:HighRes}<a href="{PhotoURL-HighRes}"></a>{/block:HighRes}
 										{LinkOpenTag}<img alt="{PhotoAlt}" src="{PhotoURL-500}" />{LinkCloseTag}
 									</div>
 									
 									{block:IfCenterPhotoPostCaptions}
 										{block:Caption}
-											<div class="CAPTION">
+											<div class="caption">
 												{Caption}
 											</div>
 										{/block:Caption}
@@ -241,7 +205,7 @@
 
 								{block:IfNotCenterPhotoPostCaptions}
 									{block:Caption}
-										<div class="CAPTION">
+										<div class="caption">
 											{Caption}
 										</div>
 									{/block:Caption}
@@ -254,57 +218,33 @@
 							<!-- QUOTE -->
 							
 							{block:Quote}
-							
-								<div class="QUOTEINFO">
-									
-									<div class="QUOTEMARK"></div>
-									<div class="TEXT">
-										{Quote}
-									</div>
-								
+							        <div class="clear"></div>
+								<div class="quote">
+									<blockquote>{Quote}</blockquote>
 								</div>
-								
-								<div class="BREAK"></div>
-								
 								{block:Source}
-								<div class="BY">
-								
+								<div class="quote_by">
 									{Source}
-								
 								</div>
 								{/block:Source}
-								
 							{/block:Quote}
-							
 							<!-- /QUOTE -->
 
 							<!-- LINK -->
-							
 							{block:Link}
-								
-								<div class="THE-LINK">
-									
-									<span>
-									
-										<a href="{URL}" target="{Target}">{Name}</a>
-										
-									</span>
-								
-								</div>
-								
-								{block:Description}					
-								<div class="MARGIN"><em>&#8211;</em> {Description}</div>
+								<a class="postTitle grid_11" href="{URL}" target="{Target}">{Name}</a>
+								<div class="clear"></div>
+								{block:Description}											
+								<div class="description">{Description}</div>
 								{/block:Description}
-								
 							{/block:Link}
-							
 							<!-- /LINK -->
 
 							<!-- CHAT -->
 							
 							{block:Chat}
 								
-								<ul class="CHAT">
+								<ul class="chat">
 								
 									{block:Lines}
 									<li class="{Alt} {UserNumber}">{block:Label}<strong>{Label}</strong> {/block:Label}{Line}</li>
@@ -350,256 +290,53 @@
 							{/block:Audio}
 							
 							<!-- /AUDIO -->																											
-						</div>
 						
-						<div class="META">
-							
-							<ul class="">
-								
-								<li>
-									<a href="{Permalink}">
-										<div class="{block:Text}TEXT{/block:Text}{block:Photo}PHOTO{/block:Photo}{block:Quote}QUOTE{/block:Quote}{block:Video}VIDEO{/block:Video}{block:Link}LINK{/block:Link}{block:Chat}CHAT{/block:Chat}{block:Audio}AUDIO{/block:Audio}{block:Answer}ANSWER{/block:Answer}"></div>
-									</a>
-								</li>
-								
-								{block:IfDisqusShortname}
-								<li>
-									<a href="{Permalink}#disqus_thread">
-										<div class="COMMENTS">
-											<div class="BADGE">
-											
-											
-																					
-											</div>
-										</div>
-									</a>
-								</li>
-								{/block:IfDisqusShortname}
-								
-								{block:NoteCount}
-								<li>
-									<a href="{Permalink}#notes">
-										<div class="NOTES">
-											<div class="BADGE">{NoteCount}</div>
-										</div>
-									</a>
-								</li>
-								{/block:NoteCount}
-							
-							</ul>
-						
-						</div>
-				
-					</div>
-									
-				</li>
-
+              
+            </div>
+          </div>
+			
 				{/block:Posts}
 
-				{block:Permalink}
-				
-					{block:PostNotes}
-
-						<li class="BREAK_ALT"></li>
-							
-						<li class="META-INFO POST-NOTES">
-									
-							{block:NoteCount}<h2>{NoteCountWithLabel}</h2>{/block:NoteCount}
-							{PostNotes}
-						
-						</li>
-												
-					{/block:PostNotes}
-					
-					{block:IfDisqusShortname}
-
-						<li class="BREAK_ALT"></li>
-						
-						<li class="META-INFO DISQUS">
-							<script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>
-							<div id="disqus_thread"></div>
-							<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
-						</li>
-					{/block:IfDisqusShortname}
-
-				{/block:Permalink}
-
-																						
-			</ul>
-			
-			<div class="SIGNATURE"></div>				
+	  		  
+	  		</div>
+	  	
 			</div>
 			<div class="push"></div>
     </div>
     <div id="footer">
 			<div class="container_12">
 	      {block:Pagination}
-    	  <div class="PAGINATION">
+	      <div class="clear"></div>
+    	  <div class="pagination">
 	    		{block:PreviousPage}
-	    		<div class="LEFT"><a href="{PreviousPage}"></a></div>
+	    		<div class="left"><a href="{PreviousPage}">Previous</a></div>
     			{/block:PreviousPage}
 	    		{block:NextPage}
-	    		<div class="RIGHT"><a href="{NextPage}"></a></div>
+	    		<div class="right"><a href="{NextPage}">Next</a></div>
 	    		{/block:NextPage}
     		</div>
+    		<div class="clear"></div>
 	    	{/block:Pagination}
 		  
 	  	  <p>Theme by <a href="http://jarrettmeyer.com">Jarrett Meyer</a>. {lang:Powered by Tumblr 2}.</p>
 	  	  <p>&copy; Copyright 2010</p>
 	  	</div>
   	</div>
-		{block:IfDisqusShortname}
-		<script type="text/javascript">
-			var DISQUSWIDGETS;
-			var disqus_domain;
-			var disqus_shortname = '{text:Disqus Shortname}';
-			    DISQUSWIDGETS = (function () {
-			        var d = {},
-			            a = (document.getElementsByTagName("HEAD")[0] || document.getElementsByTagName("BODY")[0]),
-			            c = 0,
-			            f = {},
-			            e = {
-			                identifier: 1,
-			                url: 2,
-			                slug: 3
-			            };
-			
-			        function b(i) {
-			            var h, k;
-			
-			            function j(l) {
-			                return i.hasAttribute ? i.hasAttribute(l) : i.getAttribute(l) !== null
-			            }
-			            if (j("data-disqus-identifier")) {
-			                h = e.identifier;
-			                k = i.getAttribute("data-disqus-identifier")
-			            } else {
-			                if (j("data-disqus-slug")) {
-			                    h = e.slug;
-			                    k = i.getAttribute("data-disqus-slug")
-			                } else {
-			                    h = e.url;
-			                    k = i.href.replace("#disqus_thread", "")
-			                }
-			            }
-			            f[c++] = {
-			                element: i,
-			                type: h,
-			                value: k
-			            }
-			        }
-			
-			        function g(k) {
-			            var j = document.getElementsByTagName("A");
-			            for (var h = 0; h < j.length; h++) {
-			                if (j[h].href.indexOf("#disqus_thread") >= 0) {
-			                    k(j[h])
-			                }
-			            }
-			        }
-			        d.domain = "disqus.com";
-			        d.forum = "";
-			        d.getCount = function () {
-			            var m, h, k, j;
-			            var l = [],
-			                o = 0,
-			                i = 10;
-			
-			            function n(q, p) {
-			                return encodeURIComponent(q) + "=" + encodeURIComponent(p.type) + "," + encodeURIComponent(p.value)
-			            }
-			            g(b);
-			            for (m in f) {
-			                if (f.hasOwnProperty(m)) {
-			                    l.push(n(m, f[m]))
-			                }
-			            }
-			            k = l.slice(o, i);
-			            while (k.length > 0) {
-			                j = document.createElement("script");
-			                j.type = "text/javascript";
-			                j.async = true;
-			                j.src = "http://" + d.domain + "/forums/" + d.forum + "/count.js?q=1&" + k.join("&");
-			                a.appendChild(j);
-			                o += 10;
-			                i += 10;
-			                k = l.slice(o, i)
-			            }
-			        };
-			        d.displayCount = function (j) {
-			            var m, h, n, l;
-			            for (var k = 0; k < j.counts.length; k++) {
-			                m = j.counts[k];
-			                h = f[m.uid];
-			                if (h) {
-			                    if (m.comments === 0) {
-			                        n = j.text.comments.zero
-			                    } else {
-			                        if (m.comments == 1) {
-			                            n = j.text.comments.one
-			                        } else {
-			                            n = j.text.comments.multiple
-			                        }
-			                    }
-			                    
-			                    var _int = m.comments;
-			                    
-			                    if( _int > 0 ) {
-								
-									var _new;
-									var _new2;
-									
-									console.log(l,_int);
-									
-									$(h.element).select('div.BADGE')[0].update( _int );
-									
-									for( var i = 1; i <= 9; i++ ) {
-									
-										_new = parseInt( i + '000' );
-										_new2 = parseInt( ( i + 1 ) + '000' );
-										
-										if( _int >= _new && _int < _new2 ) {
-											
-											$(h.element).select('div.BADGE')[0].update( i + 'k+' );
-											
-										}
-									
-									}
-								
-								} else {
-									
-									$(h.element).select('div.BADGE')[0].remove();
-								
-								}
-			                    
-			                }
-			            }
-			        };
-			        return d
-			    }());
-			(function () {
-			    if (typeof disqus_domain != "undefined") {
-			        DISQUSWIDGETS.domain = disqus_domain
-			    }
-			    DISQUSWIDGETS.forum = disqus_shortname;
-			    DISQUSWIDGETS.getCount()
-			}());
-
-		</script>
-		{/block:IfDisqusShortname}
-		
-		{block:IfGoogleAnalyticsUACode}
-		<script type="text/javascript">
-			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-		<script type="text/javascript">
-			try {
-			var pageTracker = _gat._getTracker("{text:Google Analytics UA Code");
-			pageTracker._trackPageview();
-			} catch(err) {}
-		</script>
-		{/block:IfGoogleAnalyticsUACode}
+  	
+  	<script type="text/javascript">
+  	  var twitterUsername = "jarrettmeyer";
+    	var twitterFormat = "json";
+      var twitterApi = "http://api.twitter.com/1/statuses/user_timeline/" + twitterUsername + "." + twitterFormat + "?callback=?";  
+      var twitterUrl = "http://twitter.com/" + twitterUsername;
+  	  $(function () {   	    
+      	$.getJSON(twitterApi, function (tweet) { 
+    	    $("#tweet").html(tweet[0].text);
+    	  });
+  	  });
+  	  var goToTwitter = function () {
+  	    window.open(twitterUrl, "twitterWindow");
+  	  };
+  	</script>
 
 	</body> 
 </html>

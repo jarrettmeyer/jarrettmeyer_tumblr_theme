@@ -36,7 +36,7 @@ div.posted_at_day { font-size: 20px; text-align: center; line-height: 22px; back
 .right { float: right; }
 		  
 /* override a few gist settings */
-.gist div { font-size: 85%; }
+.gist div { font-size: 90%; }
 		  
 /* footer settings */
 #footer, .push { height: 140px; }		  

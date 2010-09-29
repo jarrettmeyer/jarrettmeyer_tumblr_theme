@@ -247,9 +247,41 @@
 							<!-- /AUDIO -->																											
 						
               
+            </div> <!-- closes div.entry -->
+                        
+            <script type="text/javascript">
+            var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
+            </script>
+            {block:PermalinkPage}
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+                /**
+                  * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+                  */
+                (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = 'http://caffeinepoweredlife.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=caffeinepoweredlife">comments powered by Disqus.</a></noscript>
+              <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+            {/block:PermalinkPage}
+            <script type="text/javascript">
+              var disqus_shortname = 'caffeinepoweredlife';
+              (function () {
+                var s = document.createElement('script'); s.async = true;
+                s.src = 'http://disqus.com/forums/caffeinepoweredlife/count.js';
+                (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+              }());
+            </script>
+            <div class="clear"></div>
+            <div class="grid_12" style="font-size: 10px; text-align: left;">
+              <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
             </div>
-          </div>
-			
+            <div class="clear"></div>
+            
+          </div> <!-- closes div.post -->
 				{/block:Posts}
 
 	  		  

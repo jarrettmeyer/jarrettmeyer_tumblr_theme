@@ -19,45 +19,10 @@
 		<link rel="stylesheet" type="text/css" href="http://github.com/jarrettmeyer/jarrettmeyer_tumblr_theme/raw/master/reset.css" />
 		<link rel="stylesheet" type="text/css" href="http://github.com/jarrettmeyer/jarrettmeyer_tumblr_theme/raw/master/960.css" /> 
 		<link rel="stylesheet" type="text/css" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css" />
+
+		<link rel="stylesheet" type="text/css" href="http://github.com/jarrettmeyer/jarrettmeyer_tumblr_theme/raw/master/screen.css" />
 		
-		<style type="text/css">
-		  html, body { height: 100%; }		  
-		  body { background: #fff; font-size: 13px/21px; /* line-height: 1.618em; */ font-family: "Segoe UI", "Lucida Grande", "Helvetica", "Arial", "sans-serif"; }
-		  p { padding: 0.5em 0; }
-		  a { text-decoration: none; color: #3F8FC4; }
-		  a:hover { text-decoration: underline; }
-		  a:visited { color: #3F8FC4; }
-		  pre { font-family: "Consolas", "Lucida Sans Unicode", "Courier New", monospace; line-height: 1em; }
-		  #page { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -140px; }
-		  
-		  #tumblrDashboard { background: #2D2B30; height: 25px; overflow: hidden; }
-		  #navigation { background: #2D2B30; color: #FFF; font-size: 14px; height: 26px; line-height: 26px; overflow: hidden; }
-		  #navigation a { color: #FFF; }		  
-		  #links { float: left; }
-		  #search { float: right; }
-		  
-		  #title { background: #F1F1F1; border-bottom: 2px solid #DBDBDB; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; height: 60px; line-height: 60px; overflow: hidden; text-align: center; }
-		  h1 { font-size: 36px; color: #2D2B30; }
-		  
-		  #tweet { margin: 6px 0; font-size: 14px; font-weight: bold; min-height: 40px; background: #B2E0F8 url("http://github.com/jarrettmeyer/jarrettmeyer_tumblr_theme/raw/master/twitter.png") no-repeat 0 4px; color: #4B6773; text-align: center; padding: 4px 72px; }
-		  
-		  div.post { border-bottom: 2px solid #DBDBDB; padding: 1em 0; }
-		  a.postTitle { font-size: 20px; min-height: 34px; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; font-weight: bold; color: #2D2B30; }
-		  div.posted_at { font-weight: bold; display: inline; }
-		  div.posted_at_month { font-size: 10px; text-align: center; line-height: 12px; background: #CA979E; height: 12px; overflow: hidden; }
-		  div.posted_at_day { font-size: 20px; text-align: center; line-height: 22px; background: #F1F1F1; height: 22px; overflow: hidden; }
-		  
-		  .entry p { color: #111; }
-		  .entry ul { padding-left: 2em; list-style-type: disc; }
-		  .entry .description { margin-top: 1em; background: #F1F1F1; border-top: 2px solid #DBDBDB; border-bottom: 2px solid #DBDBDB; }
-		  
-		  .left { float: left; }
-		  .right { float: right; }
-		  
-		  /* footer settings */
-		  #footer, .push { height: 140px; }		  
-		  #footer { border-top: 2px solid #DBDBDB; background: #F1F1F1; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; text-align: center; }
-		  #footer p { margin: 0 auto; }		  
+		<style type="text/css">		  
   		{CustomCSS}																		
 		</style> 
     
@@ -68,9 +33,9 @@
 	    <div id="tumblrDashboard"></div>	    
 		  <div id="navigation">
 		    <div class="container_12">
-		      <ul id="links">
-		        <li class="follow">
-							<a href="http://tumblr.com/follow/{Name}">Follow</a>
+		      <ul id="links">		        
+            <li class="rss">
+							<a href="http://jarrettmeyer.com/rss">RSS</a>
 						</li>
             {block:AskEnabled}
 		        <li class="ask">
@@ -88,13 +53,6 @@
 					  </li>
 					  {/block:Pages}
 		      </ul>
-		      <!--
-		      <ul id="search">
-		        <form action="/search" method="get">
-						  <input type="text" id="search" name="q" value="{lang:Search}..." />
-					  </form>
-		      </ul>
-	        -->
 		    </div><!-- closes class=container_12 -->
 			</div><!-- closes id=navigation -->    
 			<div class="clear"></div>
@@ -216,7 +174,7 @@
 							<!-- QUOTE -->
 							
 							{block:Quote}
-							
+                <div class="clear"></div>
 								<div class="quote">
 									<blockquote>{Quote}</blockquote>
 								</div>
@@ -290,9 +248,41 @@
 							<!-- /AUDIO -->																											
 						
               
+            </div> <!-- closes div.entry -->
+                        
+            <script type="text/javascript">
+            var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
+            </script>
+            {block:PermalinkPage}
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+                /**
+                  * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+                  */
+                (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = 'http://caffeinepoweredlife.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=caffeinepoweredlife">comments powered by Disqus.</a></noscript>
+              <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+            {/block:PermalinkPage}
+            <script type="text/javascript">
+              var disqus_shortname = 'caffeinepoweredlife';
+              (function () {
+                var s = document.createElement('script'); s.async = true;
+                s.src = 'http://disqus.com/forums/caffeinepoweredlife/count.js';
+                (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+              }());
+            </script>
+            <div class="clear"></div>
+            <div class="grid_12" style="font-size: 10px; text-align: left;">
+              <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
             </div>
-          </div>
-			
+            <div class="clear"></div>
+            
+          </div> <!-- closes div.post -->
 				{/block:Posts}
 
 	  		  

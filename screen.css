@@ -1,0 +1,44 @@
+html, body { height: 100%; }		  
+body { background: #fff; font-size: 16px; line-height: 1.618em; font-family: "Lucida Sans", "Helvetica", "Arial", "sans-serif"; }
+p { padding: 0.5em 0; }
+a { text-decoration: none; color: #3F8FC4; }
+a:hover { text-decoration: underline; }
+a:visited { color: #3F8FC4; }
+pre { font-family: "Consolas", "Lucida Sans Unicode", "Courier New", monospace; line-height: 1em; }
+#page { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -140px; }
+		  
+#tumblrDashboard { background: #2D2B30; height: 25px; overflow: hidden; }
+#navigation { background: #2D2B30; color: #FFF; font-size: 14px; height: 28px; line-height: 28px; overflow: hidden; }
+#navigation a { color: #FFF; }		  
+#links { }
+#links li { float: left; display: inline; margin-right: 1em; }
+#links li.rss { width: 28px; height: 28px; overflow: hidden; background: url("http://github.com/jarrettmeyer/jarrettmeyer_tumblr_theme/raw/master/feed-icon-28x28.png") no-repeat 0 0; }    
+#links li.rss a { color: transparent; display: block; }    
+#search { float: right; }
+		  
+#title { background: #F1F1F1; border-bottom: 2px solid #DBDBDB; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; height: 60px; line-height: 60px; overflow: hidden; text-align: center; }
+h1 { font-size: 36px; color: #2D2B30; }
+		  
+#tweet { margin: 6px 0; font-size: 14px; font-weight: bold; min-height: 40px; background: #B2E0F8 url("http://github.com/jarrettmeyer/jarrettmeyer_tumblr_theme/raw/master/twitter.png") no-repeat 0 4px; color: #4B6773; text-align: center; padding: 4px 72px; }
+		  
+div.post { border-bottom: 2px solid #DBDBDB; padding: 1em 0; }
+a.postTitle { font-size: 20px; min-height: 34px; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; font-weight: bold; color: #2D2B30; }
+div.posted_at { font-weight: bold; display: inline; }
+div.posted_at_month { font-size: 10px; text-align: center; line-height: 12px; background: #CA979E; height: 12px; overflow: hidden; }
+div.posted_at_day { font-size: 20px; text-align: center; line-height: 22px; background: #F1F1F1; height: 22px; overflow: hidden; }
+		  
+.entry p { color: #111; }
+.entry ul { padding-left: 2em; list-style-type: disc; }
+.entry ol { padding-left: 2em; list-style-type: decimal; }
+.entry .description, .entry blockquote, .entry .caption { margin: 1em 0; background: #F1F1F1; border-top: 2px solid #DBDBDB; border-bottom: 2px solid #DBDBDB; padding: 0 1em; }
+		  
+.left { float: left; }
+.right { float: right; }
+		  
+/* override a few gist settings */
+.gist div { font-size: 90%; }
+		  
+/* footer settings */
+#footer, .push { height: 140px; }		  
+#footer { border-top: 2px solid #DBDBDB; background: #F1F1F1; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; text-align: center; }
+#footer p { margin: 0 auto; }

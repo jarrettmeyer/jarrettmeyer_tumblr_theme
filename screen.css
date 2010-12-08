@@ -5,7 +5,9 @@ a { text-decoration: none; color: #3F8FC4; }
 a:hover { text-decoration: underline; }
 a:visited { color: #3F8FC4; }
 pre { font-family: "Consolas", "Lucida Sans Unicode", "Courier New", monospace; line-height: 1em; }
+code { font-family: "Consolas", "Lucida Sans Unicode", "Courier New", monospace; font-style: normal; }
 #page { min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -140px; }
+
 		  
 #tumblrDashboard { background: #2D2B30; height: 25px; overflow: hidden; }
 #navigation { background: #2D2B30; color: #FFF; font-size: 14px; height: 28px; line-height: 28px; overflow: hidden; }

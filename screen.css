@@ -1,7 +1,7 @@
 html, body { height: 100%; }		  
 body { background: #fff; font-size: 14px; line-height: 1.618em; font-family: "Segoe UI", "Lucida Grande", "Helvetica", "Arial", "sans-serif"; }
-p, pre, ul { padding-bottom: 1em:}
-h3 { padding-top: 1em;}
+p, pre, ul { margin-bottom: 1em:}
+h3 { margin-top: 1em;}
 a { text-decoration: none; color: #3F8FC4; }
 a:hover { text-decoration: underline; }
 a:visited { color: #3F8FC4; }
@@ -30,7 +30,7 @@ a.postTitle { font-size: 20px; min-height: 34px; font-family: "Lucida Bright", "
 div.posted_at { font-weight: bold; display: inline; }
 div.posted_at_month { font-size: 10px; text-align: center; line-height: 12px; background: #CA979E; height: 12px; overflow: hidden; }
 div.posted_at_day { font-size: 20px; text-align: center; line-height: 22px; background: #F1F1F1; height: 22px; overflow: hidden; }
-.postTitle h3 { padding-top: 0; }
+.postTitle h3 { margin-top: 0; }
 		  
 .entry p { color: #111; }
 .entry ul { padding-left: 2em; list-style-type: disc; }

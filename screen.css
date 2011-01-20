@@ -1,6 +1,7 @@
 html, body { height: 100%; }		  
 body { background: #fff; font-size: 14px; line-height: 1.618em; font-family: "Segoe UI", "Lucida Grande", "Helvetica", "Arial", "sans-serif"; }
-p { padding: 0.5em 0; }
+p, pre, ul { padding-bottom: 1em:}
+h3 { padding-top: 1em;}
 a { text-decoration: none; color: #3F8FC4; }
 a:hover { text-decoration: underline; }
 a:visited { color: #3F8FC4; }

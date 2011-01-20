@@ -1,7 +1,6 @@
 html, body { height: 100%; }		  
 body { background: #fff; font-size: 14px; line-height: 1.618em; font-family: "Segoe UI", "Lucida Grande", "Helvetica", "Arial", "sans-serif"; }
 p, pre, ul { padding-bottom: 1em:}
-h1 { margin: 0; }
 h3 { padding-top: 1em;}
 a { text-decoration: none; color: #3F8FC4; }
 a:hover { text-decoration: underline; }
@@ -22,7 +21,7 @@ code, span.code { font-family: "Monaco", "Consolas", "Lucida Sans Unicode", "Cou
 #search { float: right; }
 		  
 #title { background: #F1F1F1; border-bottom: 2px solid #DBDBDB; font-family: "Lucida Bright", "Georgia", "Times New Roman", "serif"; height: 60px; line-height: 60px; overflow: hidden; text-align: center; }
-h1 { font-size: 36px; color: #2D2B30; }
+h1 { font-size: 36px; color: #2D2B30; margin: 0; }
 		  
 #tweet { margin: 6px 0; font-size: 14px; font-weight: bold; min-height: 40px; background: #B2E0F8 url("http://github.com/jarrettmeyer/jarrettmeyer_tumblr_theme/raw/master/twitter.png") no-repeat 0 4px; color: #4B6773; text-align: center; padding: 4px 72px; }
 		  
@@ -31,6 +30,7 @@ a.postTitle { font-size: 20px; min-height: 34px; font-family: "Lucida Bright", "
 div.posted_at { font-weight: bold; display: inline; }
 div.posted_at_month { font-size: 10px; text-align: center; line-height: 12px; background: #CA979E; height: 12px; overflow: hidden; }
 div.posted_at_day { font-size: 20px; text-align: center; line-height: 22px; background: #F1F1F1; height: 22px; overflow: hidden; }
+.postTitle h3 { padding-top: 0; }
 		  
 .entry p { color: #111; }
 .entry ul { padding-left: 2em; list-style-type: disc; }
